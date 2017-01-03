@@ -1,6 +1,7 @@
 git checkout
 
-composer install --no-dev
+If the identity used for this commit is wrong, you can fix it with:
+git commit --amend --author='Your Name <you@example.com>'
 
 //http://ruby-china.org/topics/939
 git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
@@ -12,11 +13,13 @@ $ git config --global core.excludesfile /path/to/file
 .tags
 .tags_sorted_by_file
 
+
+#忽略跟踪 与 恢复跟踪
 $ git update-index --assume-unchanged /path/to/file       #忽略跟踪
 $ git update-index --no-assume-unchanged /path/to/file  #恢复跟踪
 //我忽略了
 git update-index --assume-unchanged config/admin_db_config.php
-#忽略跟踪vendor下composer跟踪
+#忽略跟踪vendor下composer部分文件跟踪
 git update-index --assume-unchanged vendor/autoload.php
 git update-index --assume-unchanged vendor/composer/ClassLoader.php
 git update-index --assume-unchanged vendor/composer/autoload_files.php
@@ -27,5 +30,9 @@ git update-index --assume-unchanged vendor/composer/installed.json
 #忽略跟踪composer.lock
 git update-index --assume-unchanged composer.lock
 
+#回退
 
+先使用git log 查看 commit日志 或 git reflog
+找到需要回退的那次commit的 哈希值，
+git reset --hard commit_id 
 
