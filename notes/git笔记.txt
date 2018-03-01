@@ -44,31 +44,15 @@ git reset --hard commit_id
 git reset --hard HEAD^
 
 
-remote: Counting objects: 90, done.
-remote: Compressing objects: 100% (74/74), done.
-remote: Total 90 (delta 33), reused 0 (delta 0)
-Unpacking objects: 100% (90/90), done.
-From gitlab.4399.com:shanyi/shanyi
-   400cd01..7aa93d6  test       -> origin/test
-You asked me to pull without telling me which branch you
-want to merge with, and 'branch.shishaoqi.merge' in
-your configuration file does not tell me, either. Please
-specify which branch you want to use on the command line and
-try again (e.g. 'git pull <repository> <refspec>').
-See git-pull(1) for details.
+#拉取远程分支
+git checkout -b 本地分支名x origin/远程分支名x
 
-If you often merge with the same branch, you may want to
-use something like the following in your configuration file:
+#从版本控制中去除
+git rm -r -n --cached "bin/" //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。
+git rm -r --cached  "bin/"      //最终执行命令. 
+git commit -m" remove bin folder all file out of control"    //提交
+git push origin master   //提交到远程服务器
 
-    [branch "shishaoqi"]
-    remote = <nickname>
-    merge = <remote-ref>
-
-    [remote "<nickname>"]
-    url = <url>
-    fetch = <refspec>
-
-See git-config(1) for details.
 
 
 
