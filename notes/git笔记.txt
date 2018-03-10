@@ -1,6 +1,4 @@
-git checkout
-
-If the identity used for this commit is wrong, you can fix it with:
+#If the identity used for this commit is wrong, you can fix it with:
 git commit --amend --author='Your Name <you@example.com>'
 
 //http://ruby-china.org/topics/939
@@ -10,10 +8,6 @@ git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(
 本地永久忽略，效果的gitignore一样，只不过不适于写到gitignore中而已，可以自己建立一个本地独享的gitignore
 $ git config --global core.excludesfile /path/to/file  
 //#也可以直接将本地要忽略的文件添加到.git/info/exclude中
-#cTag
-.tags
-.tags_sorted_by_file
-
 修改.git/info/exclude这个文件
 
 
@@ -45,7 +39,16 @@ git reset --hard HEAD^
 
 
 #拉取远程分支
-git checkout -b 本地分支名x origin/远程分支名x
+git checkout -b 本地分支名xxx origin/远程分支名xxx
+
+#删除远程分支
+git push origin --delete <branchName>
+
+#删除不存在对应远程分支的本地分支
+可以将(其)从本地版本库中去除
+git remote prune origin
+简单的方法是使用这个命令:
+git fetch -p
 
 #从版本控制中去除
 git rm -r -n --cached "bin/" //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。
@@ -53,6 +56,19 @@ git rm -r --cached  "bin/"      //最终执行命令.
 git commit -m" remove bin folder all file out of control"    //提交
 git push origin master   //提交到远程服务器
 
+
+#git分支改名
+如果对于分支不是当前分支，可以使用下面代码：
+    git branch -m 原名 新
+
+如果是当前，那么可以使用加上新名字
+    git branch -m 原名
+
+#重命名远程分支
+在git中重命名远程分支，其实就是先删除远程分支，然后重命名本地分支，再重新提交一个远程分支。
+git push --delete origin <remote branchName>
+git branch -m <local branchName> <new local branchName>
+git push origin <new local branchName>
 
 
 
