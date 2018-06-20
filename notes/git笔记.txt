@@ -37,7 +37,6 @@ git reset --hard commit_id
 #回退上一次
 git reset --hard HEAD^
 
-
 #拉取远程分支
 git checkout -b 本地分支名xxx origin/远程分支名xxx
 
@@ -69,6 +68,14 @@ git push origin master   //提交到远程服务器
 git push --delete origin <remote branchName>
 git branch -m <local branchName> <new local branchName>
 git push origin <new local branchName>
+
+
+#库初始 与 提交到远程库
+git init
+
+git remote add origin git@github.com:shishaoqi/huobi-api.git
+
+git remote add origin git@shishao.320.io:/usr/local/git-repository/huobi.git
 
 
 
