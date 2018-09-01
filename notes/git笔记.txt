@@ -72,10 +72,13 @@ git commit --amend --author='Your Name <you@example.com>'
 //http://ruby-china.org/topics/939
 git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
-
+#怎样让 Git 忽略当前已经更改的文件
 #忽略跟踪 与 恢复跟踪
 $ git update-index --assume-unchanged /path/to/file       #忽略跟踪
 $ git update-index --no-assume-unchanged /path/to/file  #恢复跟踪
+
+
+
 //我忽略了
 git update-index --assume-unchanged config/db_config.php
 git update-index --assume-unchanged config/domain_config.php
