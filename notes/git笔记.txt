@@ -16,6 +16,9 @@ git reset --hard commit_id
 #回退上一次
 git reset --hard HEAD^
 
+#取消本地增加的文件
+git clean -df
+
 #拉取远程分支
 git checkout -b 本地分支名xxx origin/远程分支名xxx
 
