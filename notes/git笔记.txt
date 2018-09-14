@@ -19,6 +19,21 @@ git reset --hard HEAD^
 #取消本地增加的文件
 git clean -df
 
+#查看最近或某一次提交修改的文件列表相关命令整理
+git log --name-status 每次修改的文件列表, 显示状态
+git log --name-only 每次修改的文件列表
+git log --stat 每次修改的文件列表, 及文件修改的统计
+git log -p <filename>查看某个文件的修改历史
+git log -p -2查看最近2次的更新内容
+git whatchanged 每次修改的文件列表
+git whatchanged --stat 每次修改的文件列表, 及文件修改的统计
+git show 显示最后一次的文件改变的具体内容  
+git show COMMIT
+git show -5 显示最后 5 次的文件改变的具体内容
+git show commitid 显示某个 commitid 改变的具体内容
+
+#
+
 #拉取远程分支
 git checkout -b 本地分支名xxx origin/远程分支名xxx
 
