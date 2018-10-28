@@ -1,0 +1,17 @@
+
+#从备份取数据操作
+git remote rename origin 177
+
+或
+
+git remote rename origin old-origin
+git remote add origin git@shishao.320.io:PHP/vue.git
+git push -u origin --all
+git push -u origin --tags
+
+#在139上的操作，查看.git/config
+git pull old-origin master
+
+或
+
+git pull 177 master
