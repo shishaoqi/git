@@ -15,6 +15,10 @@ git reset --hard commit_id
 #回退上一次
 git reset --hard HEAD^
 
+#修改提交信息
+#https://www.jianshu.com/p/0f1fbd50b4be
+git commit --amend
+
 #取消暂存
 git reset HEAD <文件>
 
@@ -32,7 +36,10 @@ git whatchanged --stat 每次修改的文件列表, 及文件修改的统计
 git show 显示最后一次的文件改变的具体内容  
 git show COMMIT
 git show -5 显示最后 5 次的文件改变的具体内容
-git show commitid 显示某个 commitid 改变的具体内容
+git show commitId 显示某个 commitid 改变的具体内容
+
+#增量更新打包
+git diff 46660569697cae 5f43e1e7ce3e5d4 --name-only | xargs tar -czvf ../updateUserconsole.tar.gz
 
 
 #拉取远程分支
@@ -82,6 +89,9 @@ git push --set-upstream origin local
 #git库 忽略filemode变更
 git config --add core.filemode false
 
+
+#将本地所有标签一次性提交到git服务器
+git push origin -–tags
 
 
 

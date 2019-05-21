@@ -1,0 +1,2 @@
+#默认库路径
+/var/opt/gitlab/git-data/repositories/
