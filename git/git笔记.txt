@@ -5,6 +5,9 @@ git config --global alias.ci commit
 git config --global alias.br branch
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
+#重写历史
+https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2
+
 #用户设置
 $ git config --global user.name shishaoqi
 $ git config --global user.email shishaoqi@huayun.com
@@ -60,7 +63,7 @@ git rm -r --cached  "bin/"      //最终执行命令.
 git commit -m" remove bin folder all file out of control"    //提交
 git push origin master   //提交到远程服务器
 
-
+h
 #git分支改名
 如果对于分支不是当前分支，可以使用下面代码：
     git branch -m 原名 新
@@ -75,8 +78,7 @@ git branch -m <local branchName> <new local branchName>
 git push origin <new local branchName>
 
 
-#库初始
-git init
+
 
 #提交到远程库
 git remote add origin git@github.com:shishaoqi/huobi-api.git
@@ -101,32 +103,21 @@ git commit --amend --author='Your Name <you@example.com>'
 //http://ruby-china.org/topics/939
 git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
-#怎样让 Git 忽略当前已经更改的文件
-#忽略跟踪 与 恢复跟踪
-$ git update-index --assume-unchanged /path/to/file       #忽略跟踪
-$ git update-index --no-assume-unchanged /path/to/file  #恢复跟踪
+
+git log --author=“author” 可以查找某一个作者所有的提交
+
+#tag标签操作
+git tag -a v1.0.5 -m '版本1.0.5'
+git push origin v1.0.5
+
+#tag del
+git tag -d v1.4-lw
+#从任何远程仓库中移除这个标签
+git push origin :refs/tags/v1.4-lw
+
+#一次性推送很多标签
+git push origin --tags
 
 
 
-//我忽略了
-git update-index --assume-unchanged config/db_config.php
-git update-index --assume-unchanged config/domain_config.php
-
-#忽略跟踪vendor下composer部分文件跟踪
-git update-index --assume-unchanged vendor/autoload.php
-git update-index --assume-unchanged vendor/composer/ClassLoader.php
-git update-index --assume-unchanged vendor/composer/autoload_files.php
-git update-index --assume-unchanged vendor/composer/autoload_psr4.php
-git update-index --assume-unchanged vendor/composer/autoload_real.php
-git update-index --assume-unchanged vendor/composer/installed.json
-
-
-#忽略跟踪composer.lock
-git update-index --assume-unchanged composer.lock
-
-
-本地永久忽略，效果的gitignore一样，只不过不适于写到gitignore中而已，可以自己建立一个本地独享的gitignore
-$ git config --global core.excludesfile /path/to/file  
-//#也可以直接将本地要忽略的文件添加到.git/info/exclude中
-修改.git/info/exclude这个文件
 
