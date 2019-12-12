@@ -37,12 +37,11 @@ git log -p -2查看最近2次的更新内容
 git whatchanged 每次修改的文件列表
 git whatchanged --stat 每次修改的文件列表, 及文件修改的统计
 git show 显示最后一次的文件改变的具体内容  
-git show COMMIT
-git show -5 显示最后 5 次的文件改变的具体内容
 git show commitId 显示某个 commitid 改变的具体内容
+git show -5 显示最后 5 次的文件改变的具体内容
 
 #增量更新打包
-git diff 46660569697cae 5f43e1e7ce3e5d4 --name-only | xargs tar -czvf ../updateUserconsole.tar.gz
+git diff  59082e980 533132c8 --name-only | xargs tar -czvf ../updateUserconsole.tar.gz
 
 
 #拉取远程分支
@@ -103,8 +102,8 @@ git commit --amend --author='Your Name <you@example.com>'
 //http://ruby-china.org/topics/939
 git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
-
-git log --author=“author” 可以查找某一个作者所有的提交
+#可以查找某一个作者所有的提交
+git log --author=“author”
 
 #tag标签操作
 git tag -a v1.0.5 -m '版本1.0.5'
