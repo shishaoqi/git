@@ -1,0 +1,76 @@
+1. $app = new Illuminate\Foundation\Application
+
+
+关系方法用 xdebug 理解到吃透
+
+singleton
+
+bind
+
+function ($container, $parameters = []) use ($abstract, $concrete) {
+            if ($abstract == $concrete) {
+                return $container->build($concrete);
+            }
+
+            return $container->resolve(
+                $concrete, $parameters, $raiseEvents = false
+            );
+        };
+
+
+build
+
+$concrete($this, $this->getLastParameterOverride());
+
+
+
+resolve
+
+bound
+
+rebound
+
+
+
+# 过程
+$app->singleton(
+    Illuminate\Contracts\Http\Kernel::class,
+    App\Http\Kernel::class
+);
+
+--> bind --> getClosure (把所有的事物都包装成 Closure) -->  回到 index.php 文件 执行 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+--> 进入 Application.php 的 make 方法 -->
+
+执行 父方法
+public function make($abstract, array $parameters = [])
+    {
+        return $this->resolve($abstract, $parameters);
+    }
+
+-->
+
+回到执行 resolve 方法
+
+-->
+
+if ($this->isBuildable($concrete, $abstract)) {
+            $object = $this->build($concrete);
+        } else {
+            $object = $this->make($concrete);
+        }
+
+-->
+
+build 方法中，应用 ReflectionClass 去实现 new 类
+
+
+
+
+
+
+
+
+
+
+
