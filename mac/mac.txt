@@ -1,2 +1,7 @@
 #查看端口使用情况
 lsof -i:3306
+
+
+#brew 启动 mysql 
+mysql.server start
+mysql.server stop
